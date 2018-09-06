@@ -9,9 +9,17 @@ set nobackup
 set nowb
 set noswapfile
 
-" Status bar - this is next to be updated...
-set statusline=%<%f%m%r%y%=%b\ 0x%B\ \ %l,%c%V\ %P
+" Status bar
+set statusline=%f       " File name
+set statusline+=\ 
+set statusline+=%m      " Modified flag
+set statusline+=%y      " type of file in buffer
+set statusline+=%=      " Separation between left and right sides
+set statusline+=%l:%c%V " Cursor position
+set statusline+=\ 
+set statusline+=%p%%     " Percentage through file from current line
 set laststatus=2
+
 
 " Colour, paren matching, tabs as spaces, etc
 set lisp
