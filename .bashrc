@@ -15,10 +15,19 @@ alias la="ls -laG"
 alias grep="grep --colour"
 alias fbscale="sips --resampleWidth 600"
 alias df="df -H"
-export ECHO_NEST_API_KEY="KSAJ-XXX" # Obviously editted out
-
+export ECHO_NEST_API_KEY="KSAJ-XXX" # Obviously edited out for the greater good of mankind...
 
 # security related aliases
 alias sha1='openssl sha1'
 alias httpheader='curl -I'
 alias wget='wget -c'
+
+# Mac specific stuff
+if [[ "$OSTYPE" == "darwin"* ]]; then
+        # w00t!
+fi
+
+# RPi (Raspbian) specific stuff
+if [[ "$OSTYPE" == "linux-gnueabihf"* ]]; then
+        # w00t!
+fi
