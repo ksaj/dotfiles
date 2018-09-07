@@ -29,5 +29,5 @@ fi
 
 # RPi (Raspbian) specific stuff
 if [[ "$OSTYPE" == "linux-gnueabihf"* ]]; then
-        # w00t!
+        export $PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:~/bin
 fi
