@@ -22,7 +22,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 force_color_prompt=yes
 
-
+alias cd..="cd .."
 alias ll="ls -lh"
 alias la="ls -lah"
 alias l="ls -CF"
@@ -30,6 +30,19 @@ alias grep="grep --colour"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias df="df -H"
+alias diff="colordiff"
+
+# Update to complement vi and term colours
+man() {
+        env \
+        LESS_TERMCAP_md=$(printf "\e[1;36m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
 
 # security related aliases
 alias sha1='openssl sha1'
@@ -56,3 +69,8 @@ fi
 if [[ "$OSTYPE" == "linux-gnueabihf"* ]]; then
         export $PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:~/bin
 fi
+
+# Fun stuff
+
+meh() { echo "¯\_(ツ)_/¯"; }
+tableflip() { echo "（╯°□°）╯ ┻━┻"; }
