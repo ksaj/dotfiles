@@ -70,7 +70,6 @@ if [[ "$OSTYPE" == "linux-gnueabihf"* ]]; then
         export $PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:~/bin
 fi
 
-# Fun stuff
-
+# Fun stuff - Need to update font for these characters...
 meh() { echo "¯\_(ツ)_/¯"; }
 tableflip() { echo "（╯°□°）╯ ┻━┻"; }
