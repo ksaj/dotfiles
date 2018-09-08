@@ -29,9 +29,7 @@ alias l="ls -CF"
 alias grep="grep --colour"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
-alias fbscale="sips --resampleWidth 600"
 alias df="df -H"
-export ECHO_NEST_API_KEY="KSAJ-XXX" # Obviously edited out for the greater good of mankind...
 
 # security related aliases
 alias sha1='openssl sha1'
@@ -49,7 +47,9 @@ rot13()
 
 # Mac specific stuff
 if [[ "$OSTYPE" == "darwin"* ]]; then
-        # w00t!
+        alias fbscale="sips --resampleWidth 600"
+        export ECHO_NEST_API_KEY="KSAJ-XXX" # Obviously edited out for the greater good of mankind...
+# INCOMPLETE...
 fi
 
 # RPi (Raspbian) specific stuff
