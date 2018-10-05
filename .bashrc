@@ -23,10 +23,11 @@ shopt -s checkwinsize
 force_color_prompt=yes
 
 alias cd..="cd .."
+alias ls="ls --color"
 alias ll="ls -lh"
 alias la="ls -lah"
 alias l="ls -CF"
-alias grep="grep --colour"
+alias grep="grep --color"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias df="df -H"
@@ -67,7 +68,7 @@ fi
 
 # RPi (Raspbian) specific stuff
 if [[ "$OSTYPE" == "linux-gnueabihf"* ]]; then
-        export $PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:~/bin
+        export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:~/bin
 fi
 
 # Fun stuff - Need to update font for these characters...
