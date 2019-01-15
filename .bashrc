@@ -33,6 +33,11 @@ alias egrep="egrep --color=auto"
 alias df="df -H"
 alias diff="colordiff"
 
+# Enable Bash cdable aliases
+shopt -s cdable_vars
+# Export the directory aliases that you can now use with cd, from anywhere
+export projects=~/Projects
+
 # Update to complement vi and term colours
 man() {
         env \
