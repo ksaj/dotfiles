@@ -20,15 +20,17 @@ set statusline+=\
 set statusline+=%p%%     " Percentage through file from current line
 set laststatus=2
 
-
 " Colour, paren matching, tabs as spaces, etc
 set lisp
 set showmatch
 set expandtab
 set smarttab
-set ai          " Auto indent
-set si          " Smart indent
+"set ai          " Auto indent
+"set si          " Smart indent
 set wrap        " Wrap lines
 syntax on
+
 set background=dark
-colorscheme torte
+colo koehler
+syntax on
+
