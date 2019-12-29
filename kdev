@@ -1,0 +1,12 @@
+#/bin/sh
+
+tmux new-session -d 'bash -l'
+tmux split-window -v 'sbcl'
+
+#tmux split-window -v 'ipython'
+
+#tmux split-window -v
+
+#tmux new-window 'sbcl'
+tmux -2 attach-session -d
+
