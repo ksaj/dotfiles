@@ -1,12 +1,11 @@
 #/bin/sh
 
+# Note, terminal is on right half of screen in my desktop layout.
+# I typically have a web browser on the left. Usually pointing to
+# the Common Lisp Hyperspec.
+
 tmux new-session -d 'bash -l'
 tmux split-window -v 'sbcl'
 
-#tmux split-window -v 'ipython'
-
-#tmux split-window -v
-
-#tmux new-window 'sbcl'
 tmux -2 attach-session -d
 
