@@ -1,8 +1,12 @@
 #/bin/sh
 
-# Note, terminal is on right half of screen in my desktop layout.
-# I typically have a web browser on the left. Usually pointing to
-# the Common Lisp Hyperspec.
+# Note, terminal is on right half of the screen in my desktop environment.
+# I typically have a web browser on the left half. Usually pointing to the
+# Common Lisp Hyperspec at http://www.lispworks.com/documentation/HyperSpec/Front
+
+# Mouse is initially focused on sbcl repl since more often than not, I
+# experiment a little before I even know what I'm doing and what I want
+# to save.
 
 tmux new-session -d 'bash -l'
 tmux split-window -v 'sbcl'
