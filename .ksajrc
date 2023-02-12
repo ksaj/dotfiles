@@ -1,0 +1,170 @@
+#
+# Karsten Johansson's bash tweaks. Add source .ksajrc to end of .bashrc
+#
+# Some of these might already be there. But I have them here to make sure
+# they totally are.
+#
+
+export TERM=xterm-256color
+force_color_prompt=yes
+HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s checkhash
+shopt -s checkjobs
+shopt -s no_empty_cmd_completion
+
+shopt -s cdable_vars # export cdable directories below
+export projects=~/Projects
+
+
+stty -ixon # disable <ctrl>s terminal freeze
+
+
+if [ $(id -u) -eq 0 ]; then
+  alias sudo=''
+fi
+
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ls='ls --color'
+alias ll='ls -lh'
+alias la='ls -lah'
+alias l='ls -CF'
+alias grep='grep --color'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias df='df -H'
+alias diff='colordiff'
+alias wget='wget -c'
+alias free='free -h'
+alias please='sudo !!'
+alias cls='clear'
+alias ns='netstat -tup --wide'
+alias pbcut='xclip -sel clip -i'
+alias pbpaste='xclip -sel clip -o'
+alias update='sudo apt update && sudo apt upgrade -y'
+alias filecount='find . -type f | wc -l'
+alias cpv='rsync -ah --info=progress2' # Like cp with a progress meter
+alias shred='shred -u'
+alias trash='mv --force -t ~/.local/share/Trash '
+
+alias yt='youtube-dl --no-check-certificate'
+alias mp3='youtube-dl -x --audio-format mp3' # --embed-thumbnail
+alias mplayer-text='mplayer -vo caca'
+alias sbcl='rlwrap sbcl 2>/dev/null'
+alias sha1='openssl sha1'
+alias httpheader='curl -I'
+alias randomtext="tr -dc a-z1-4 </dev/urandom | tr 1-2 ' \n' | awk 'length==0 || length>50' | tr 3-4 ' ' | sed 's/^ *//' | cat -s | fmt"
+
+# Make this test for directory/file first
+mdcd() {
+  mkdir $1
+  cd $1
+}
+
+# Makes a new folder, then cd's into it.
+mkcd(){ NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
+
+# test this. Makes a new directory, then cds on in.mkcd(){ NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
+mkcd(){ NAME=$1; mkdir -p "$NAME"; cd "$NAME"; }
+
+# Update to complement vi and term colours
+man() {
+        env \
+        LESS_TERMCAP_md=$(printf "\e[1;36m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+        man "$@"
+}
+
+
+rot13()
+{
+    if [ $# = 0 ] ; then
+      tr "[a-m][n-z][A-M][N-Z]" "[n-z][a-m][N-Z][A-M]"
+    else
+      tr "[a-m][n-z][A-M][N-Z]" "[n-z][a-m][N-Z][A-M]" < $1
+    fi
+}
+
+
+extract () {
+    for archive in $*; do
+      if [ -f $archive ] ; then
+        case $archive in
+          *.tar.bz2)   tar xvjf $archive   ;;
+          *.tar.gz)    tar xvzf $archive   ;;
+          *.bz2)       bunzip2 $archive    ;;
+          *.rar)       rar x $archive      ;;
+          *.gz)        gunzip $archive     ;;
+          *.tar)       tar xvf $archive    ;;
+          *.tbz2)      tar xvjf $archive   ;;
+          *.tgz)       tar xvzf $archive   ;;
+          *.zip)       unzip $archive      ;;
+          *.Z)         uncompress $archive ;;
+          *.7z)        7z x $archive       ;;
+          *)           echo "I don't know how to extract '$archive'..." ;;
+        esac
+          else
+            echo "'$archive' is not a valid file!"
+          fi
+      done
+}
+
+seq () {
+  printf '$s\n' {$1..$2}
+}
+
+# Fun stuff - these are probably aliases and not functions
+meh() { echo "¯\_(ツ)_/¯"; }
+tableflip() { echo "（╯°□°）╯ ┻━┻"; }
+alias starwars='telnet towel.blinkenlights.nl'
+
+
+#
+# TODO
+#
+
+# Print 6 digit pseudo-random number. Script for number of digits choice
+# python -c 'import random; print(random.randint(0,1000000-1))'
+
+# Script this - Pretty-Prints system load
+# while :; do date; awk '{printf "1  minute load: %.2f\n", $1; printf "5  minute load: %.2f\n", $2; printf "15 minute load: %.2f\n", $3}' /proc/loadavg; sleep 3; clear; done
+
+# Creates array of CPU freq's in GHz
+# cpus=($({ echo scale=2; awk '/cpu MHz/ {print $4 " / 1000"}' /proc/cpuinfo; } | bc))
+
+# Convert a decimal number to  binary, octal, etc
+# echo 'obase=2;1234' | bc
+
+
+                            #
+                              #
+                                #
+              ###                #
+           #########              #
+          # Finale ##             #
+#          kfortune ##           #
+         ###########           #
+          ##  ####            #
+            ###            ###
+          #            ####  ##
+        #            ###########
+       #              kfortune ##
+      #              # Finale ##
+      #               #########
+       #                 ###
+        #       
+          #               
+           #             
+
+
